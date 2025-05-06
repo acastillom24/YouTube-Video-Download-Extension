@@ -12,7 +12,7 @@
     "dependencies": {
       "cors": "^2.8.5",
       "express": "^4.18.2",
-      "ytdl-core": "^4.11.5"
+      "ytdl-core": "latest"
     },
     "devDependencies": {
       "nodemon": "^3.0.1"
