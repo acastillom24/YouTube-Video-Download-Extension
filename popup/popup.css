@@ -1,0 +1,303 @@
+/* Estilos para YouTube Video Downloader */
+
+:root {
+    --primary-color: #ff0000;
+    --primary-dark: #cc0000;
+    --secondary-color: #282828;
+    --accent-color: #4285f4;
+    --light-gray: #f5f5f5;
+    --mid-gray: #ccc;
+    --dark-gray: #606060;
+    --success-color: #0f9d58;
+    --warning-color: #f4b400;
+    --error-color: #db4437;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--secondary-color);
+    background-color: #fff;
+  }
+  
+  .container {
+    width: 400px;
+    max-width: 100%;
+    padding: 16px;
+    overflow: hidden;
+  }
+  
+  header {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 18px;
+    color: var(--primary-color);
+  }
+  
+  h2 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  /* Sección de entrada de URL */
+  .input-section {
+    margin-bottom: 16px;
+  }
+  
+  .url-input-container {
+    display: flex;
+    margin-bottom: 8px;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--mid-gray);
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+  }
+  
+  button {
+    padding: 8px 16px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .url-input-container button {
+    border-radius: 0 4px 4px 0;
+  }
+  
+  button:hover {
+    background-color: #3367d6;
+  }
+  
+  button:disabled {
+    background-color: var(--mid-gray);
+    cursor: not-allowed;
+  }
+  
+  button#current-tab-url {
+    width: 100%;
+    background-color: var(--secondary-color);
+  }
+  
+  button#current-tab-url:hover {
+    background-color: #424242;
+  }
+  
+  /* Lista de videos */
+  .video-list-section {
+    margin-bottom: 16px;
+  }
+  
+  .video-list {
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px solid var(--mid-gray);
+    border-radius: 4px;
+    padding: 8px;
+  }
+  
+  .empty-list-message {
+    text-align: center;
+    padding: 32px 16px;
+    color: var(--dark-gray);
+  }
+  
+  .video-item {
+    border: 1px solid var(--mid-gray);
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color: var(--light-gray);
+  }
+  
+  .video-info {
+    display: flex;
+    margin-bottom: 8px;
+  }
+  
+  .thumbnail {
+    width: 120px;
+    height: 68px;
+    position: relative;
+    margin-right: 12px;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .duration {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-size: 11px;
+  }
+  
+  .details {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .url {
+    font-size: 12px;
+    color: var(--dark-gray);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .video-actions {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .quality-selector {
+    flex: 1;
+    margin-right: 8px;
+  }
+  
+  .quality-select {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid var(--mid-gray);
+    border-radius: 4px;
+  }
+  
+  .action-buttons {
+    display: flex;
+  }
+  
+  .action-buttons button {
+    margin-left: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .download-btn {
+    background-color: var(--success-color);
+  }
+  
+  .download-btn:hover {
+    background-color: #0b8043;
+  }
+  
+  .remove-btn {
+    background-color: var(--error-color);
+  }
+  
+  .remove-btn:hover {
+    background-color: #c53929;
+  }
+  
+  .status {
+    font-size: 12px;
+    color: var(--dark-gray);
+  }
+  
+  .status-text.success {
+    color: var(--success-color);
+  }
+  
+  .status-text.error {
+    color: var(--error-color);
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    margin-top: 4px;
+  }
+  
+  /* Acciones globales */
+  .global-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  
+  /* Sección de estado del servidor */
+  .server-status {
+    margin-bottom: 16px;
+    padding: 8px;
+    background-color: var(--light-gray);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .status-indicator {
+    display: flex;
+    align-items: center;
+  }
+  
+  #server-status-value {
+    margin-left: 8px;
+    font-weight: 500;
+  }
+  
+  #server-status-value.online {
+    color: var(--success-color);
+  }
+  
+  #server-status-value.offline {
+    color: var(--error-color);
+  }
+  
+  #start-server {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--dark-gray);
+    padding-top: 8px;
+    border-top: 1px solid var(--mid-gray);
+  }
+  
+  footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo rojo de YouTube -->
+  <rect width="128" height="128" rx="16" fill="#FF0000"/>
+  
+  <!-- Círculo interior -->
+  <circle cx="64" cy="64" r="48" fill="#FFFFFF" opacity="0.1"/>
+  
+  <!-- Triángulo blanco de reproducción -->
+  <path d="M88 64L48 88V40L88 64Z" fill="white"/>
+  
+  <!-- Flecha de descarga -->
+  <rect x="38" y="92" width="52" height="10" rx="2" fill="white"/>
+  <path d="M64 38V78L52 66L64 38Z" fill="white"/>
+  <path d="M64 38V78L76 66L64 38Z" fill="white"/>
+  
+  <!-- Círculo decorativo exterior -->
+  <circle cx="64" cy="64" r="60" stroke="white" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="4 4" fill="none"/>
+</svg>

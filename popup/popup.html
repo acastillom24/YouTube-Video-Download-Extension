@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Video Downloader</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>YouTube Video Downloader</h1>
+    </header>
+    
+    <!-- Sección para añadir enlaces -->
+    <section class="input-section">
+      <div class="url-input-container">
+        <input type="text" id="video-url" placeholder="Pega un enlace de YouTube aquí" />
+        <button id="add-url">Añadir</button>
+      </div>
+      <button id="current-tab-url">Añadir pestaña actual</button>
+    </section>
+    
+    <!-- Lista de videos -->
+    <section class="video-list-section">
+      <h2>Videos (<span id="video-count">0</span>)</h2>
+      <div id="video-list" class="video-list">
+        <!-- Aquí se cargarán dinámicamente los videos -->
+        <div class="empty-list-message">
+          Añade enlaces de videos para descargar
+        </div>
+      </div>
+    </section>
+    
+    <!-- Acciones globales -->
+    <section class="global-actions">
+      <button id="clear-all" disabled>Limpiar todo</button>
+      <button id="download-all" disabled>Descargar todos</button>
+    </section>
+    
+    <!-- Estado del servidor -->
+    <section class="server-status">
+      <div class="status-indicator">
+        <span>Servidor local:</span>
+        <span id="server-status-value">Verificando...</span>
+      </div>
+      <button id="start-server" style="display: none;">Iniciar servidor</button>
+    </section>
+    
+    <!-- Información y ayuda -->
+    <footer>
+      <p>Creado por <a href="#" id="github-link">Tu Nombre</a> | <a href="#" id="help-link">Ayuda</a></p>
+    </footer>
+  </div>
+  
+  <!-- Plantilla para elementos de video -->
+  <template id="video-item-template">
+    <div class="video-item" data-url="">
+      <div class="video-info">
+        <div class="thumbnail">
+          <img src="" alt="Miniatura del video">
+          <span class="duration"></span>
+        </div>
+        <div class="details">
+          <h3 class="title"></h3>
+          <p class="url"></p>
+        </div>
+      </div>
+      <div class="video-actions">
+        <div class="quality-selector">
+          <select class="quality-select">
+            <option value="">Seleccionar calidad</option>
+          </select>
+        </div>
+        <div class="action-buttons">
+          <button class="download-btn" disabled>Descargar</button>
+          <button class="remove-btn">Eliminar</button>
+        </div>
+      </div>
+      <div class="status">
+        <span class="status-text"></span>
+        <progress class="progress-bar" value="0" max="100" style="display: none;"></progress>
+      </div>
+    </div>
+  </template>
+  
+  <!-- Script de la interfaz -->
+  <script src="popup.js"></script>
+</body>
+</html>
