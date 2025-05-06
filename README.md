@@ -124,13 +124,82 @@ Si experimentas problemas de CORS al descargar algunos videos, puedes usar el se
 - **Error de CORS**: Inicia el servidor local incluido y la extensión lo utilizará automáticamente.
 - **Calidades no disponibles**: No todos los videos tienen todas las calidades disponibles. La extensión mostrará solo las calidades que YouTube ofrece.
 
+## Cliente de Prueba para Depuración
+
+Esta extensión incluye un cliente de prueba HTML independiente que te permite verificar el funcionamiento del servidor local sin necesidad de interactuar con la extensión del navegador. Esta herramienta es extremadamente útil para:
+
+- Diagnosticar problemas de conexión con YouTube
+- Probar actualizaciones o cambios en las bibliotecas subyacentes
+- Verificar si los errores provienen del servidor o de la extensión
+- Comprobar la disponibilidad de diferentes formatos de video
+
+### Cómo usar el Cliente de Prueba
+
+1. **Inicia el servidor local**:
+   ```bash
+   cd server
+   npm install
+   node server.js
+   ```
+
+2. **Accede al cliente de prueba**:
+   Abre en tu navegador: [http://localhost:3000/test-client.html](http://localhost:3000/test-client.html)
+
+3. **Verifica la conexión**:
+   El cliente mostrará si el servidor está conectado y funcionando correctamente.
+
+4. **Prueba una URL de YouTube**:
+   - Pega una URL de video de YouTube en el campo de texto
+   - Haz clic en "Obtener Info"
+   - El sistema mostrará la información del video y las opciones de descarga disponibles
+
+5. **Descarga un video de prueba**:
+   Haz clic en el botón "Descargar" junto a la calidad deseada para iniciar la descarga directamente.
+
+### Mantenimiento y Actualizaciones
+
+El cliente de prueba es especialmente útil cuando YouTube realiza cambios en su plataforma que pueden afectar la funcionalidad de descarga. Si experimentas problemas con la extensión:
+
+1. Prueba primero utilizando el cliente de prueba para identificar si el problema está en el servidor o en la extensión
+2. Actualiza la biblioteca `@distube/ytdl-core` a la última versión:
+   ```bash
+   cd server
+   npm update @distube/ytdl-core@latest
+   ```
+3. Reinicia el servidor y verifica si el problema se ha resuelto
+
+### Ubicación del archivo
+
+El cliente de prueba se encuentra en:
+```
+YouTube-Video-Downloader-Extension/
+└── server/
+    └── public/
+        └── test-client.html
+```
+
+Para utilizarlo, asegúrate de que la carpeta `public` exista dentro del directorio `server` y que la línea `app.use(express.static(PUBLIC_DIR));` esté presente en tu archivo `server.js`.
+
 ## Advertencia legal
 
 Esta extensión es solo para uso educativo y personal. Descargar contenido con derechos de autor puede infringir los términos de servicio de YouTube y las leyes de propiedad intelectual. Asegúrate de descargar solo contenido que tengas permiso para descargar.
 
+## Créditos y Agradecimientos
+
+Este proyecto utiliza las siguientes bibliotecas y herramientas de código abierto:
+
+### Bibliotecas principales
+
+- [@distube/ytdl-core](https://github.com/distubejs/ytdl-core) - Un fork mantenido de ytdl-core con actualizaciones frecuentes para adaptarse a los cambios de la API de YouTube. Esta biblioteca es el componente central que permite la extracción de información y descarga de videos.
+
+- [Express](https://expressjs.com/) - Framework web para Node.js utilizado en el servidor local.
+
+- [CORS](https://github.com/expressjs/cors) - Middleware para habilitar CORS (Cross-Origin Resource Sharing).
+
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Siente libre de abrir un issue o enviar un pull request.
+Si encuentras útil esta extensión, considera dar una estrella ⭐ al proyecto en GitHub y también al proyecto [@distube/ytdl-core](https://github.com/distubejs/ytdl-core) que hace posible la funcionalidad principal.
 
 ## Licencia
 
