@@ -21,6 +21,12 @@ if (!fs.existsSync(TEMP_DIR)) {
   fs.mkdirSync(TEMP_DIR, { recursive: true });
 }
 
+// Crear directorio public si no existe
+const PUBLIC_DIR = path.join(__dirname, 'public');
+if (!fs.existsSync(PUBLIC_DIR)) {
+  fs.mkdirSync(PUBLIC_DIR, { recursive: true });
+}
+
 // Inicializar aplicación Express
 const app = express();
 
@@ -28,6 +34,9 @@ const app = express();
 app.use(cors()); // Permitir CORS desde cualquier origen
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Servir archivos estáticos desde la carpeta 'public'
+app.use(express.static(PUBLIC_DIR));
 
 // Configurar rutas API
 app.use('/api', apiRoutes);
@@ -58,6 +67,15 @@ app.get('/', (req, res) => {
             padding: 2px 5px;
             border-radius: 3px;
           }
+          .btn {
+            display: inline-block;
+            background-color: #FF0000;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+          }
         </style>
       </head>
       <body>
@@ -73,6 +91,8 @@ app.get('/', (req, res) => {
         </ul>
         <p>Para usar este servidor, la extensión YouTube Video Downloader debe estar instalada en el navegador.</p>
         <p>Para verificar el estado del servidor: <code>GET /api/status</code></p>
+        
+        <a href="/test-client.html" class="btn">Ir al Cliente de Prueba</a>
       </body>
     </html>
   `);
@@ -82,6 +102,7 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
   console.log(`Verificar estado: http://localhost:${PORT}/api/status`);
+  console.log(`Cliente de prueba: http://localhost:${PORT}/test-client.html`);
 });
 
 // Manejar terminación de proceso
