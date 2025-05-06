@@ -1,0 +1,25 @@
+# Estructura del Repositorio YouTube Video Downloader Extension
+
+```
+YouTube-Video-Downloader-Extension/
+├── manifest.json             // Configuración de la extensión
+├── background.js             // Script en segundo plano
+├── popup/
+│   ├── popup.html           // Interfaz de usuario
+│   ├── popup.css            // Estilos para la interfaz
+│   └── popup.js             // Lógica de la interfaz
+├── lib/
+│   ├── yt-info.js           // Módulo para extraer info de YouTube
+│   ├── downloader.js        // Módulo para gestionar descargas
+│   └── utils.js             // Funciones de utilidad
+├── server/                   // Servidor local (opcional para casos de CORS)
+│   ├── package.json
+│   ├── server.js
+│   └── routes.js
+├── icons/
+│   ├── icon16.svg
+│   ├── icon48.svg
+│   ├── icon128.svg
+│   └── favicon.svg
+└── README.md                 // Documentación
+```

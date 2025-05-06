@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo rojo de YouTube -->
+  <rect width="48" height="48" rx="8" fill="#FF0000"/>
+  
+  <!-- Triángulo blanco de reproducción -->
+  <path d="M36 24.5L16 36V13L36 24.5Z" fill="white"/>
+  
+  <!-- Flecha de descarga -->
+  <path d="M34 34H14V39H34V34Z" fill="white"/>
+  <path d="M24 14V30L18 25L24 14Z" fill="white"/>
+  <path d="M24 14V30L30 25L24 14Z" fill="white"/>
+</svg>
